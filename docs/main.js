@@ -47,3 +47,16 @@ function init() {
 
   new TypeWriter(txtElement, words, wait);
 }
+
+function scrollToAnchor(aid){
+  var aTag = $("a[name='"+ aid +"']");
+  $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+}
+
+$("#link-about").click(function() {
+  scrollToAnchor('anchor-about');
+});
+
+$("#link-projects").click(function() {
+  scrollToAnchor('anchor-projects');
+});

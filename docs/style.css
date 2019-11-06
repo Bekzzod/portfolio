@@ -4,8 +4,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Raleway', sans-serif;
-  height: 100vh;
-  overflow: hidden;
 }
 
 header {
@@ -13,10 +11,14 @@ header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  background: white;
   color: #333;
   -webkit-box-shadow: 0px 3px 20px -6px #536dfe;
   -moz-box-shadow: 0px 3px 20px -6px #536dfe;
   box-shadow: 0px 3px 20px -6px #536dfe;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .logo {
@@ -44,6 +46,15 @@ nav ul li {
   margin: 0 10px;
   user-select: none;
   cursor: pointer;
+}
+
+nav ul li a:hover, .logo a:hover {
+  color: #536dfe;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
   -webkit-transition: color 0.5s;
   -moz-transition:    color 0.5s;
   -ms-transition:     color 0.5s;
@@ -51,27 +62,36 @@ nav ul li {
   transition:         color 0.5s;
 }
 
-nav ul li:hover, .logo a:hover {
-  color: #536dfe;
-}
-
-.container {
+.container-about {
   margin: 100px;
   display: flex;
   justify-content: center;
 }
 
-.container .about {
+.container-about .about {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.container .about, .container .image {
+.container-about .about, .container-about .image {
   width: 30%;
 }
 
 .txt-type .txt {
   color: #536dfe;
-  border-right: 0.2rem solid #777;
+  border-right: 0.2rem solid black;
+}
+
+.container-projects {
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container-projects h1 {
+  margin: 50px;
 }
