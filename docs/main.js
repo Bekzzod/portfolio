@@ -6,6 +6,8 @@ let letter = "";
 let isDeleting = false;
 let typeSpeed = 400;
 const scrollButton = document.querySelector(".scroll-to-top");
+const nav = document.querySelector(".nav-links");
+const burger = document.querySelector(".burger");
 
 (function type() {
   if (count === words.length) {
@@ -32,6 +34,12 @@ const scrollButton = document.querySelector(".scroll-to-top");
 
   setTimeout(type, typeSpeed);
 })();
+
+burger.addEventListener("click", function() {
+  nav.classList.toggle('nav-active');
+
+  burger.classList.toggle('toggle');
+})
 
 function scrollToAnchor(aid) {
   var aTag = $("a[name='" + aid + "']");

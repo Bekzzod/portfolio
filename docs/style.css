@@ -3,16 +3,16 @@
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
 }
 
-header {
-  padding: 10px 0;
+nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-  background: white;
-  color: #333;
+  min-height: 8vh;
+  background: #536dfe;
   -webkit-box-shadow: 0px 3px 20px -6px #536dfe;
   -moz-box-shadow: 0px 3px 20px -6px #536dfe;
   box-shadow: 0px 3px 20px -6px #536dfe;
@@ -21,7 +21,32 @@ header {
   width: 100%;
 }
 
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+  margin: 0;
+}
+
+.nav-links li {
+  list-style: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  -webkit-transition: color 0.5s;
+  -moz-transition:    color 0.5s;
+  -ms-transition:     color 0.5s;
+  -o-transition:      color 0.5s;
+  transition:         color 0.5s;
+}
+
 .logo {
+  text-transform: uppercase;
+  letter-spacing: 5px;
   user-select: none;
   cursor: pointer;
 }
@@ -35,37 +60,68 @@ header {
   transition:         color 0.5s;
 }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin: 0 10px;
-  user-select: none;
-  cursor: pointer;
-}
-
-nav ul li a:hover, .logo a:hover {
+.nav-links li a:hover, .logo a:hover {
   color: #536dfe;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: black;
-  -webkit-transition: color 0.5s;
-  -moz-transition:    color 0.5s;
-  -ms-transition:     color 0.5s;
-  -o-transition:      color 0.5s;
-  transition:         color 0.5s;
 }
 
 .container-about {
   margin: 100px 50px;
   display: flex;
   justify-content: center;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 1px;
+  margin: 5px;
+  background: black;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-links {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 678px) {
+  .nav-links {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background: #536dfe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+  .burger {
+    display: block;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px,4px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px,-4px);
 }
 
 .container-about .about {
