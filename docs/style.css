@@ -63,7 +63,7 @@ nav ul li a {
 }
 
 .container-about {
-  margin: 100px;
+  margin: 100px 50px;
   display: flex;
   justify-content: center;
 }
@@ -78,11 +78,11 @@ nav ul li a {
   width: 30%;
 }
 
-.txt-type .txt {
+.txt-type {
   color: #536dfe;
 }
 
-.txt-type .txt::after {
+.txt-type::after {
   content: "";
   border-right: 2px solid black;
   animation: blink 0.5s infinite ease;

@@ -1,62 +1,46 @@
-const TypeWriter = function(txtElement, words, wait = 3000) {
-  this.txtElement = txtElement;
-  this.words = words;
-  this.txt = '';
-  this.wordIndex = 0;
-  this.wait = parseInt(wait, 10);
-  this.type();
-  this.isDeleting = false;
-}
+const words = ["Bekzod", "Abakulov", "A Developer", "A Creator"];
+let count = 0;
+let index = 0;
+let currentWord = "";
+let letter = "";
+let isDeleting = false;
+let typeSpeed = 400;
 
-TypeWriter.prototype.type = function() {
-  const current = this.wordIndex % this.words.length;
-  const fullTxt = this.words[current];
+(function type() {
+  if (count === words.length) {
+    count = 0;
+  }
+  currentWord = words[count];
 
-  if (this.isDeleting) {
-    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  if (!isDeleting) {
+    letter = currentWord.slice(0, ++index);
   } else {
-    this.txt = fullTxt.substring(0, this.txt.length + 1);
+    letter = currentWord.slice(0, --index);
   }
 
-  this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+  document.querySelector(".txt-type").textContent = letter;
 
-  let typeSpeed = 300;
-
-  if (this.isDeleting) {
+  if (letter.length === currentWord.length) {
+    isDeleting = true;
     typeSpeed /= 2;
+  } else if (letter.length === 0) {
+    isDeleting = false;
+    typeSpeed *= 2;
+    count++;
   }
 
-  if (!this.isDeleting && this.txt === fullTxt) {
-    typeSpeed = this.wait;
-    this.isDeleting = true;
-  } else if(this.isDeleting && this.txt === '') {
-    this.isDeleting = false;
-    this.wordIndex++;
-    typeSpeed = 500;
-  }
+  setTimeout(type, typeSpeed);
+})();
 
-  setTimeout(() => this.type(), typeSpeed);
-}
-
-document.addEventListener('DOMContentLoaded', init);
-
-function init() {
-  const txtElement = document.querySelector('.txt-type');
-  const words = JSON.parse(txtElement.getAttribute('data-words'));
-  const wait = txtElement.getAttribute('data-wait');
-
-  new TypeWriter(txtElement, words, wait);
-}
-
-function scrollToAnchor(aid){
-  var aTag = $("a[name='"+ aid +"']");
-  $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+function scrollToAnchor(aid) {
+  var aTag = $("a[name='" + aid + "']");
+  $("html,body").animate({ scrollTop: aTag.offset().top }, "slow");
 }
 
 $("#link-about").click(function() {
-  scrollToAnchor('anchor-about');
+  scrollToAnchor("anchor-about");
 });
 
 $("#link-projects").click(function() {
-  scrollToAnchor('anchor-projects');
+  scrollToAnchor("anchor-projects");
 });
