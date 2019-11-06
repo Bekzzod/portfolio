@@ -80,7 +80,21 @@ nav ul li a {
 
 .txt-type .txt {
   color: #536dfe;
-  border-right: 0.2rem solid black;
+}
+
+.txt-type .txt::after {
+  content: "";
+  border-right: 2px solid black;
+  animation: blink 0.5s infinite ease;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .container-projects {
