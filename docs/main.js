@@ -5,6 +5,7 @@ let currentWord = "";
 let letter = "";
 let isDeleting = false;
 let typeSpeed = 400;
+const scrollButton = document.querySelector(".scroll-to-top");
 
 (function type() {
   if (count === words.length) {
@@ -44,3 +45,15 @@ $("#link-about").click(function() {
 $("#link-projects").click(function() {
   scrollToAnchor("anchor-projects");
 });
+
+$(window).scroll(function() {
+  if ($(this).scrollTop()) {
+      $('.scroll-to-top:hidden').stop(true, true).fadeIn();
+  } else {
+      $('.scroll-to-top').stop(true, true).fadeOut();
+  }
+});
+
+scrollButton.addEventListener("click", function() {
+  $("html, body").animate({scrollTop: 0}, "slow");
+})
