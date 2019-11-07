@@ -15,7 +15,7 @@ const burger = document.querySelector(".burger");
   if (count === words.length) {
     count = 0;
   }
-  currentWord = words[count];
+  currentWord = words[parseInt(count)];
 
   if (!isDeleting) {
     letter = currentWord.slice(0, ++index);
