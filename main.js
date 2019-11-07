@@ -9,7 +9,7 @@ const scrollButton = document.querySelector(".scroll-to-top");
 const nav = document.querySelector(".nav-links");
 const burger = document.querySelector(".burger");
 
-(function type() {
+const typer = (function type() {
   if (count === words.length) {
     count = 0;
   }
@@ -35,11 +35,12 @@ const burger = document.querySelector(".burger");
   setTimeout(type, typeSpeed);
 })();
 
-burger.addEventListener("click", function() {
-  nav.classList.toggle('nav-active');
+typer();
 
-  burger.classList.toggle('toggle');
-})
+burger.addEventListener("click", function() {
+  nav.classList.toggle("nav-active");
+  burger.classList.toggle("toggle");
+});
 
 function scrollToAnchor(aid) {
   var aTag = $("a[name='" + aid + "']");
@@ -56,12 +57,16 @@ $("#link-projects").click(function() {
 
 $(window).scroll(function() {
   if ($(this).scrollTop() > 50) {
-      $('.scroll-to-top:hidden').stop(true, true).fadeIn();
+    $(".scroll-to-top:hidden")
+      .stop(true, true)
+      .fadeIn();
   } else {
-      $('.scroll-to-top').stop(true, true).fadeOut();
+    $(".scroll-to-top")
+      .stop(true, true)
+      .fadeOut();
   }
 });
 
 scrollButton.addEventListener("click", function() {
-  $("html, body").animate({scrollTop: 0}, "slow");
-})
+  $("html, body").animate({ scrollTop: 0 }, "slow");
+});
