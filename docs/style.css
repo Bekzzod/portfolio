@@ -7,18 +7,39 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+.scroll-to-top {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #536dfe;
+  color: white;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  outline: none;
+  cursor: pointer;
+  display: none;
+}
+
+.scroll-to-top:active {
+  background: #465cd8;
+}
+
 nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
   background: #536dfe;
+  z-index: 360;
   -webkit-box-shadow: 0px 3px 20px -6px #536dfe;
   -moz-box-shadow: 0px 3px 20px -6px #536dfe;
   box-shadow: 0px 3px 20px -6px #536dfe;
-  position: fixed;
-  top: 0;
-  width: 100%;
 }
 
 .nav-links {
@@ -64,8 +85,12 @@ nav {
   color: white;
 }
 
+.container {
+  width: 80%;
+  margin: auto;
+}
+
 .container-about {
-  margin: 100px 50px;
   display: flex;
   justify-content: center;
 }
@@ -89,7 +114,10 @@ nav {
   }
 }
 
-@media screen and (max-width: 678px) {
+@media (max-width: 678px) {
+  html, body {
+    overflow-x: hidden;
+  }
   .nav-links {
     position: absolute;
     right: 0px;
@@ -105,6 +133,13 @@ nav {
   }
   .burger {
     display: block;
+  }
+  .container {
+    width: 100%;
+  }
+  .container-about {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -131,7 +166,7 @@ nav {
 }
 
 .container-about .about, .container-about .image {
-  width: 30%;
+  width: 50%;
 }
 
 .txt-type {
@@ -154,7 +189,6 @@ nav {
 }
 
 .container-projects {
-  margin: 100px;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -163,25 +197,9 @@ nav {
 }
 
 .container-projects h1 {
-  margin: 50px;
+  margin: 0 50px;
 }
 
-.scroll-to-top {
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #536dfe;
-  color: white;
-  border: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  outline: none;
-  cursor: pointer;
-  display: none;
-}
-
-.scroll-to-top:active {
-  background: #465cd8;
+.container-projects .image {
+  width: 100%;
 }
