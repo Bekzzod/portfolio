@@ -2,7 +2,7 @@ const words = ["Bekzod", "Abakulov", "A Developer", "A Creator"];
 let count = 0;
 let index = 0;
 let currentWord = "";
-let letter = "";
+let letter = '';
 let isDeleting = false;
 let typeSpeed = 400;
 
