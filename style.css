@@ -159,7 +159,7 @@ footer a:hover,
 }
 
 .container-about {
-  height: 100vh;
+  height: 92vh;
   display: flex;
   justify-content: center;
 }
@@ -192,6 +192,22 @@ footer a:hover,
   100% {
     opacity: 1;
   }
+}
+
+.container-about button {
+  background: #536dfe;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  width: 200px;
+  border: 2px solid #536dfe;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.container-about button:hover {
+  background: white;
 }
 
 .container-projects {
