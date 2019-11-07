@@ -6,12 +6,12 @@ let letter = "";
 let isDeleting = false;
 let typeSpeed = 400;
 
-const textType = document.querySelector(".txt-type")
+const textType = document.querySelector(".txt-type");
 const scrollButton = document.querySelector(".scroll-to-top");
 const nav = document.querySelector(".nav-links");
 const burger = document.querySelector(".burger");
 
-const typer = (function () {
+(function type() {
   if (count === words.length) {
     count = 0;
   }
@@ -36,8 +36,6 @@ const typer = (function () {
 
   setTimeout(type, typeSpeed);
 })();
-
-typer();
 
 burger.addEventListener("click", function() {
   nav.classList.toggle("nav-active");
