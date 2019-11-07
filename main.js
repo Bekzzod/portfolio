@@ -5,11 +5,13 @@ let currentWord = "";
 let letter = "";
 let isDeleting = false;
 let typeSpeed = 400;
+
+const textType = document.querySelector(".txt-type")
 const scrollButton = document.querySelector(".scroll-to-top");
 const nav = document.querySelector(".nav-links");
 const burger = document.querySelector(".burger");
 
-const typer = (function type() {
+const typer = (function () {
   if (count === words.length) {
     count = 0;
   }
@@ -21,7 +23,7 @@ const typer = (function type() {
     letter = currentWord.slice(0, --index);
   }
 
-  document.querySelector(".txt-type").textContent = letter;
+  textType.textContent = letter;
 
   if (letter.length === currentWord.length) {
     isDeleting = true;
