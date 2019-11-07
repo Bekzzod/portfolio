@@ -28,7 +28,8 @@ const burger = document.querySelector(".burger");
   if (letter.length === currentWord.length) {
     isDeleting = true;
     typeSpeed /= 2;
-  } else if (letter.length === 0) {
+  }
+  if (letter.length === 0) {
     isDeleting = false;
     typeSpeed *= 2;
     count++;
